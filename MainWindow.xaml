@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Encryption_Machine"
         mc:Ignorable="d"
-        Title="Encryption Machine" Height="450" Width="800">
+        Title="Encryption Machine" Height="250" Width="400">
 
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
@@ -17,17 +17,17 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
 
-        <Label Content="Path to file:" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"/>
+        <Label Content="Path to directory:" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"/>
         <Label Content="Encryption Key:" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1"/>
 
-        <TextBox x:Name="PathTB" Height="18" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0"/>
-        <TextBox x:Name="KeyTB" Height="18" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" MaxLength="16"/>
+        <TextBox Text="R:\Encrypt\test" x:Name="PathTB" Height="18" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0"/>
+        <TextBox Text="" x:Name="KeyTB" Height="18" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" MaxLength="16"/>
 
         <ProgressBar x:Name="progress_Bar" IsIndeterminate="False" Maximum="50" Minimum="0"  Grid.Row="3" Grid.ColumnSpan="2" BorderBrush="#FF000000" BorderThickness="1"  Margin="10" />
         <Label x:Name="progress_BarL" Content="Working, please wait..." Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3"/>

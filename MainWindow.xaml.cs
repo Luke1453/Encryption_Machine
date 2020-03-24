@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Security.Cryptography;
+using System.IO;
+using System.IO.Compression;
 
 namespace Encryption_Machine {
     
@@ -26,9 +28,27 @@ namespace Encryption_Machine {
             progress_BarL.Visibility = Visibility.Hidden;
         }
 
+        //button handling
+
         public void Encrypt_Click(object sender, RoutedEventArgs e) {
 
-            Console.WriteLine("eencrypt");
+            string dir_name = PathTB.Text;
+
+            if (Directory.Exists(dir_name)) {
+                if (KeyTB.Text.Length==16) {
+
+                    encrypt_File(dir_name, KeyTB.Text);
+
+                }
+                else {
+                    MessageBox.Show("Encryption key must be 16 characters long");
+                    return;
+                }
+            }
+            else {
+                MessageBox.Show("Directory doesn't exist");
+                return;
+            }
             
         }
 
@@ -43,6 +63,22 @@ namespace Encryption_Machine {
             Console.WriteLine("cancle");
 
         }
+
+        // normal methods
+
+        public void encrypt_File(string dir_name, string key) {
+
+            Encryption encryption = new Encryption();
+
+            encryption.dir_name = dir_name;
+            encryption.encryption_key = key;
+
+            //Console.WriteLine(key);
+            encryption.encrypt();
+
+        }
+
+
 
     }
 }
