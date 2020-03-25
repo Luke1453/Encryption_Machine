@@ -30,8 +30,8 @@ namespace Encryption_Machine {
 
         public void encrypt() {
 
-            storage_dir = dir_name + "_" + DateTime.Now.ToString("s").Replace(":", String.Empty);
-            zip_name = dir_name + "_" + DateTime.Now.ToString("s").Replace(":", String.Empty) + ".zip";
+            storage_dir = dir_name + "_" + DateTime.Now.ToString("s").Replace(":", "_");
+            zip_name = storage_dir + ".zip";
 
             zip_path = Path.Combine(storage_dir, Path.GetFileName(zip_name));
             zip_name = Path.GetFileName(zip_path);
@@ -96,7 +96,8 @@ namespace Encryption_Machine {
             }
 
             File.Delete(zip_path);
-            
+            plainbytes = null;
+            encrypted_byte_arr = null;
         }
     }
 
