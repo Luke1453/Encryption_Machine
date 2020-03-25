@@ -22,11 +22,14 @@ namespace Encryption_Machine {
         private string zip_name;
         private string zip_path;
 
-        private string encrypted_path;
+        public string encrypted_path { get; set; }
         private string encrypted_name;
+        
 
         private string md5_name;
         private string md5_path;
+
+        public string md5_string { get; set; }
 
         public void encrypt() {
 
@@ -95,9 +98,10 @@ namespace Encryption_Machine {
 
             }
 
+            md5_string = Encoding.UTF8.GetString(hash, 0, hash.Length);
+
             File.Delete(zip_path);
-            plainbytes = null;
-            encrypted_byte_arr = null;
+            
         }
     }
 
